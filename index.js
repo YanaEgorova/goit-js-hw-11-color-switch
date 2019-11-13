@@ -47,4 +47,6 @@ const change = function (array) {
 
 
 
-refs.btnStart.addEventListener('click', change(colors));
+refs.btnStart.addEventListener('click', () => {
+  change(colors)
+});
