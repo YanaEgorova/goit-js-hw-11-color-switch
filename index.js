@@ -30,7 +30,7 @@ const changeBackground = {
     }
 
     this.isActive = true;
-    this.change = setInterval(() => {
+    this.changeId = setInterval(() => {
       const randomIntegerFromInterval = (min, max) => {
         return Math.floor(Math.random() * (max - min + 1) + min);
       };
@@ -50,16 +50,13 @@ const changeBackground = {
     }, 1000)
 
 
+  },
+  stop() {
+    clearInterval(this.changeId)
   }
 }
 
 
-
-
-
-
-
-
-
-
 refs.btnStart.addEventListener('click', changeBackground.start.bind(changeBackground));
+
+refs.btnStop.addEventListener('click', changeBackground.stop.bind(changeBackground));
