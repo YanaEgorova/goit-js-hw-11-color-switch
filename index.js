@@ -51,6 +51,7 @@ const changeBackground = {
 
 
   },
+
   stop() {
     clearInterval(this.changeId);
     this.isActive = false;
