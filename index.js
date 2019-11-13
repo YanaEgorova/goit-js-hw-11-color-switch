@@ -24,28 +24,32 @@ const colors = [
 const changeBackground = {
   isActive: false,
   start() {
-    if (!this.isActive) {
-      this.isActive = true;
-      this.change = setInterval(() => {
-        const randomIntegerFromInterval = (min, max) => {
-          return Math.floor(Math.random() * (max - min + 1) + min);
-        };
 
-        const backgroundColor = function (colors) {
-          const index = randomIntegerFromInterval(0, colors.length - 1);
-          for (let i = 0; i < colors.length; i += 1) {
-            if (i === index) {
-              console.log('i: ', i);
-              return colors[i]
-            }
-          }
-
-        };
-
-        refs.body.style.backgroundColor = backgroundColor(colors);
-      }, 1000)
-
+    if (this.isActive) {
+      return;
     }
+
+    this.isActive = true;
+    this.change = setInterval(() => {
+      const randomIntegerFromInterval = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      };
+
+      const backgroundColor = function (colors) {
+        const index = randomIntegerFromInterval(0, colors.length - 1);
+        for (let i = 0; i < colors.length; i += 1) {
+          if (i === index) {
+            console.log('i: ', i);
+            return colors[i]
+          }
+        }
+
+      };
+
+      refs.body.style.backgroundColor = backgroundColor(colors);
+    }, 1000)
+
+
   }
 }
 
